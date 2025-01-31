@@ -1,3 +1,24 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "4f53",
+      "title": "Learn Python",
+      "completed": false
+    },
+    {
+      "id": "e64a",
+      "title": "kelvin",
+      "completed": false
+    },
+    {
+      "id": "f39a",
+      "title": "Build a Portfolio Website",
+      "completed": false
+    },
+    {
+      "id": "799e",
+      "title": "Learn Python",
+      "completed": false
+    }
+  ]
 }
