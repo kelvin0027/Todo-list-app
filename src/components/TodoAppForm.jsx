@@ -4,21 +4,29 @@ import api from "../api/todos";
 
 const TodoAppForm = ({ inputFieldValue, setinputFieldValue, setTodos, setIsLoading, isLoading }) => {
   const fetchTodos = async () => {
-    setIsLoading(true);
-    const response = await api.get("/todos");
-    setTodos(response.data.reverse());
-    setIsLoading(false);
-    console.log(response.data);
+    try {
+      setIsLoading(true);
+      const response = await api.get("/todos");
+      setTodos(response.data.reverse());
+      setIsLoading(false);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching todos:", error);
+    }
   };
   const onSumbitHandler = async (e) => {
-    e.preventDefault();
-    const newTask = { title: inputFieldValue, completed: false };
+    try {
+      e.preventDefault();
+      const newTask = { title: inputFieldValue, completed: false };
 
-    const response = await api.post("/todos", newTask);
-    console.log(response.data);
-    setTodos((prevTodos) => [response.data, ...prevTodos]);
-    setinputFieldValue("");
-    console.log(inputFieldValue);
+      const response = await api.post("/todos", newTask);
+      console.log(response.data);
+      setTodos((prevTodos) => [response.data, ...prevTodos]);
+      setinputFieldValue("");
+      console.log(inputFieldValue);
+    } catch (error) {
+      console.error("Error fetching todos:", error);
+    }
   };
   useEffect(() => {
     fetchTodos();

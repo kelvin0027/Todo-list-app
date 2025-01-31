@@ -9,11 +9,15 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const deleteAllTodos = async () => {
-    setIsDeleting(true);
-    const deletePromises = todos.map((todo) => api.delete(`/todos/${todo.id}`));
-    await Promise.all(deletePromises);
-    setTodos([]);
-    setIsDeleting(false);
+    try {
+      setIsDeleting(true);
+      const deletePromises = todos.map((todo) => api.delete(`/todos/${todo.id}`));
+      await Promise.all(deletePromises);
+      setTodos([]);
+      setIsDeleting(false);
+    } catch (error) {
+      console.error("Error fetching todos:", error);
+    }
   };
   return (
     <div className="w-[35vw] pt-[3rem] rounded-2xl space-y-2 mx-auto h-[98vh] bg-[#0F303B] ">

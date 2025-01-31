@@ -4,9 +4,13 @@ import api from "../api/todos";
 
 const TodoAppList = ({ todos, setTodos, isLoading, isDeleting, setIsDeleting }) => {
   const deleteBtnHandler = async (id) => {
-    const response = await api.delete("/todos/" + id);
-    console.log(response.data);
-    setTodos(todos.filter((todo) => todo.id !== id));
+    try {
+      const response = await api.delete("/todos/" + id);
+      console.log(response.data);
+      setTodos(todos.filter((todo) => todo.id !== id));
+    } catch (error) {
+      console.error("Error fetching todos:", error);
+    }
   };
 
   return (
