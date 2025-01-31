@@ -1,19 +1,31 @@
 {
-  "tasks": [
+  "todos": [
     {
       "id": "1923",
-      "content": "Learn Python",
-      "isChecked": true
+      "title": "Learn Python",
+      "completed": true
     },
     {
       "id": "d8de",
-      "content": "Learn Reactjseeeee",
-      "isChecked": true
+      "title": "Learn Reactjseeeee",
+      "completed": true
     },
     {
       "id": "29b4",
-      "content": "Learn Reactjs77",
-      "isChecked": true
+      "title": "Learn Reactjs77",
+      "completed": true
+    },
+    {
+      "id": "529b",
+      "title": "e"
+    },
+    {
+      "id": "6129",
+      "title": "Learn Python"
+    },
+    {
+      "id": "a243",
+      "title": "wow"
     }
   ]
 }
