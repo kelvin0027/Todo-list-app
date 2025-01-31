@@ -1,29 +1,3 @@
 {
-  "todos": [
-    {
-      "id": "dde9",
-      "title": "Learn Python",
-      "completed": false
-    },
-    {
-      "id": "9389",
-      "title": "Nothing",
-      "completed": false
-    },
-    {
-      "id": "a65e",
-      "title": "333",
-      "completed": false
-    },
-    {
-      "id": "5f70",
-      "title": "Learn Reactjseeeee",
-      "completed": false
-    },
-    {
-      "id": "b7fc",
-      "title": "dd",
-      "completed": false
-    }
-  ]
+  "todos": []
 }
