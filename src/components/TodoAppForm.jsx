@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import todoSvg from "../assets/calendar-svgrepo-com.svg";
 import api from "../api/todos";
 
-const TodoAppForm = ({ inputFieldValue, setinputFieldValue, setTodos }) => {
+const TodoAppForm = ({ inputFieldValue, setinputFieldValue, setTodos, setIsLoading, isLoading }) => {
   const fetchTodos = async () => {
+    setIsLoading(true);
     const response = await api.get("/todos");
     setTodos(response.data.reverse());
+    setIsLoading(false);
     console.log(response.data);
   };
   const onSumbitHandler = async (e) => {
