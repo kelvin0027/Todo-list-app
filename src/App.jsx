@@ -22,7 +22,7 @@ const App = () => {
     }
   };
   return (
-    <div className="w-[90vw] lg:w-[38vw] pt-[3rem] rounded-2xl space-y-2 mx-auto h-[92vh] lg:h-[98vh] bg-[#0F303B] ">
+    <div className="w-[90vw] md:w-[80vw] lg:w-[38vw] pt-[3rem] rounded-2xl space-y-2 mx-auto  h-[92vh] md:h-[80vh] lg:h-[98vh] bg-[#0F303B] ">
       <TodoAppForm
         isDeleting={isDeleting}
         setIsDeleting={setIsDeleting}
@@ -51,7 +51,7 @@ const App = () => {
         isEditingId={isEditingId}
         setIsEditingId={setIsEditingId}
       ></TodoAppList>
-      <div className="w-[85%] mx-auto">
+      <div className="w-[85%] pb-2 mx-auto">
         <button onClick={deleteAllTodos} className=" text-black px-2 text-sm py-2 bg-red-400 rounded-lg">
           Clear all Todos
         </button>
