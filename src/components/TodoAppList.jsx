@@ -2,7 +2,18 @@ import React from "react";
 import TodoAppItem from "./TodoAppItem";
 import api from "../api/todos";
 
-const TodoAppList = ({ todos, setTodos, isLoading, isDeleting, setIsDeleting }) => {
+const TodoAppList = ({
+  todos,
+  setTodos,
+  isLoading,
+  isEditingId,
+  setIsEditingId,
+  isEditing,
+  setIsEditing,
+  isDeleting,
+  setinputFieldValue,
+  InputFieldValue,
+}) => {
   const deleteBtnHandler = async (id) => {
     try {
       const response = await api.delete("/todos/" + id);
@@ -11,6 +22,12 @@ const TodoAppList = ({ todos, setTodos, isLoading, isDeleting, setIsDeleting }) 
     } catch (error) {
       console.error("Error fetching todos:", error);
     }
+  };
+
+  const editTodoHandler = (title, id) => {
+    setinputFieldValue(title);
+    setIsEditing(true);
+    setIsEditingId(id);
   };
 
   return (
@@ -26,7 +43,7 @@ const TodoAppList = ({ todos, setTodos, isLoading, isDeleting, setIsDeleting }) 
           <p className="text-center text-xl text-gray-300 italic">No tasks available. Add a new todo!</p>
         ) : (
           todos.map((todo) => (
-            <TodoAppItem deleteBtnHandler={() => deleteBtnHandler(todo.id)} key={todo.id}>
+            <TodoAppItem editTodoHandler={() => editTodoHandler(todo.title, todo.id)} deleteBtnHandler={() => deleteBtnHandler(todo.id)} key={todo.id}>
               {todo.title}
             </TodoAppItem>
           ))

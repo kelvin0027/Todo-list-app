@@ -7,7 +7,9 @@ const App = () => {
   const [inputFieldValue, setinputFieldValue] = useState("");
   const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isEditingId, setIsEditingId] = useState(null);
   const deleteAllTodos = async () => {
     try {
       setIsDeleting(true);
@@ -30,6 +32,10 @@ const App = () => {
         setTodos={setTodos}
         inputFieldValue={inputFieldValue}
         setinputFieldValue={setinputFieldValue}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+        isEditingId={isEditingId}
+        setIsEditingId={setIsEditingId}
       ></TodoAppForm>
       <TodoAppList
         isDeleting={isDeleting}
@@ -40,6 +46,10 @@ const App = () => {
         setTodos={setTodos}
         inputFieldValue={inputFieldValue}
         setinputFieldValue={setinputFieldValue}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
+        isEditingId={isEditingId}
+        setIsEditingId={setIsEditingId}
       ></TodoAppList>
       <div className="w-[85%] mx-auto">
         <button onClick={deleteAllTodos} className=" text-black px-2 text-sm py-2 bg-red-400 rounded-lg">
