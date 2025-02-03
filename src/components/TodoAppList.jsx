@@ -30,6 +30,18 @@ const TodoAppList = ({
     setIsEditingId(id);
   };
 
+  const markAsDoneHandler = async (id) => {
+    // Get the current todo to check its completed state
+    const todo = todos.find((todo) => todo.id === id);
+    const newCompletedState = !todo.completed;
+
+    const response = await api.patch("/todos/" + id, { completed: newCompletedState });
+    console.log(response.data);
+
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: newCompletedState } : todo)));
+  };
+
+
   return (
     <div>
       <div
@@ -43,7 +55,14 @@ const TodoAppList = ({
           <p className="text-center text-xl text-gray-300 italic">No tasks available. Add a new todo!</p>
         ) : (
           todos.map((todo) => (
-            <TodoAppItem editTodoHandler={() => editTodoHandler(todo.title, todo.id)} deleteBtnHandler={() => deleteBtnHandler(todo.id)} key={todo.id}>
+            <TodoAppItem
+              className={todo.completed ? "line-through decoration-double decoration-red-300" : ""}
+              completed={todo.completed}
+              editTodoHandler={() => editTodoHandler(todo.title, todo.id)}
+              markAsDoneHandler={() => markAsDoneHandler(todo.id)}
+              deleteBtnHandler={() => deleteBtnHandler(todo.id)}
+              key={todo.id}
+            >
               {todo.title}
             </TodoAppItem>
           ))
@@ -54,3 +73,4 @@ const TodoAppList = ({
 };
 
 export default TodoAppList;
+
