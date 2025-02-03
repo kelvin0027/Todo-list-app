@@ -34,13 +34,10 @@ const TodoAppList = ({
     // Get the current todo to check its completed state
     const todo = todos.find((todo) => todo.id === id);
     const newCompletedState = !todo.completed;
-
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: newCompletedState } : todo)));
     const response = await api.patch("/todos/" + id, { completed: newCompletedState });
     console.log(response.data);
-
-    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, completed: newCompletedState } : todo)));
   };
-
 
   return (
     <div>
@@ -73,4 +70,3 @@ const TodoAppList = ({
 };
 
 export default TodoAppList;
-

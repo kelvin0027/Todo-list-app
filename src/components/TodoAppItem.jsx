@@ -11,7 +11,7 @@ const TodoAppItem = ({ children, deleteBtnHandler, editTodoHandler,  markAsDoneH
         <div className={`flex items-center gap-2`}>
           <button onClick={markAsDoneHandler}>
             <img
-              className={`size-[1.55rem] lg:size-[1.35rem] md:size-[1.7rem]${completed ? "lg:size-[1.35rem] md:size-[1.4rem] size-[1.6rem]" : ""}`}
+              className={`${completed ? "lg:size-[1.35rem] md:size-[1.4rem] size-[1.6rem]" : "size-[1.6rem] lg:size-[1.5rem] md:size-[1.7rem]"}`}
               src={completed ? redCross : greenTick}
               alt="done"
             />
