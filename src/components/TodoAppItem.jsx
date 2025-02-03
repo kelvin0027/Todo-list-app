@@ -10,13 +10,17 @@ const TodoAppItem = ({ children, deleteBtnHandler, editTodoHandler,  markAsDoneH
         <p className={` w-[80%]  text-lg text-white ${className} `}>{children}</p>
         <div className={`flex items-center gap-2`}>
           <button onClick={markAsDoneHandler}>
-            <img className={`size-[1.5rem] ${completed ? "size-[1.35rem]" : ""}`} src={completed ? redCross : greenTick} alt="done" />
+            <img
+              className={`size-[1.5rem] ${completed ? "lg:size-[1.35rem] size-[1.6rem]" : ""}`}
+              src={completed ? redCross : greenTick}
+              alt="done"
+            />
           </button>
           <button onClick={editTodoHandler}>
-            <img className="size-[1.3rem]" src={greenEdit} alt="Edit" />
+            <img className="lg:size-[1.3rem] size-[1.55rem]" src={greenEdit} alt="Edit" />
           </button>
           <button onClick={deleteBtnHandler}>
-            <img className="size-6" src={redTrash} alt="Delete" />
+            <img className="lg:size-6 size-[1.8rem]" src={redTrash} alt="Delete" />
           </button>
         </div>
       </div>
