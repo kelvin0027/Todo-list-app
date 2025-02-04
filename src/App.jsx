@@ -57,6 +57,7 @@ const App = () => {
           Clear all Todos
         </button>
       </div>
+      <Analytics />
     </div>
   );
 };
