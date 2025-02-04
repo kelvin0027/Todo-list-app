@@ -19,6 +19,10 @@ const TodoAppList = ({
       const response = await api.delete("/todos/" + id);
       console.log(response.data);
       setTodos(todos.filter((todo) => todo.id !== id));
+      if (id === isEditingId){
+        setinputFieldValue('')
+        setIsEditing(false)
+      }
     } catch (error) {
       console.error("Error fetching todos:", error);
     }

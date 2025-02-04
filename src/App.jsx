@@ -22,7 +22,7 @@ const App = () => {
     }
   };
   return (
-    <div className="w-[90vw] md:w-[80vw] lg:w-[38vw] pt-[3rem] rounded-2xl space-y-2 mx-auto  h-[92vh] md:h-[80vh] lg:h-[98vh] bg-[#0F303B] ">
+    <div className="w-[90vw] md:w-[80vw] lg:w-[38vw] pt-[3rem] rounded-2xl space-y-2 mx-auto  py-3 bg-[#0F303B] ">
       <TodoAppForm
         isDeleting={isDeleting}
         setIsDeleting={setIsDeleting}

@@ -17,7 +17,7 @@ const TodoAppForm = ({
   const fetchTodos = async () => {
     try {
       setIsLoading(true);
-      const response = await api.get("/todos");
+      const response = await api.get("/todos?_limit=20");
       setTodos(response.data.reverse());
       setIsLoading(false);
       console.log(response.data);
@@ -29,11 +29,11 @@ const TodoAppForm = ({
     e.preventDefault();
     if (!isEditing) {
       try {
-        const newTask = { title: inputFieldValue, completed: false };
+        const newTask = { id: Date.now(), title: inputFieldValue, completed: false };
 
-        const response = await api.post("/todos", newTask);
-        console.log(response.data);
-        setTodos((prevTodos) => [response.data, ...prevTodos]);
+        // const response = await api.post("/todos", newTask);
+        // console.log(response.data);
+        setTodos((prevTodos) => [newTask, ...prevTodos]);
         setinputFieldValue("");
         console.log(inputFieldValue);
       } catch (error) {
@@ -81,7 +81,11 @@ const TodoAppForm = ({
         </div>
         <button
           type="submit"
-          className="p-2.5 ml-2 w-[55%] lg:w-[35%] md:text-md  text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className={` p-2.5 ml-2 w-[55%] lg:w-[35%] md:text-md  text-sm font-medium  ${
+            isEditing
+              ? "bg-red-500 text-black border-red-500 hover:bg-red-600 focus:ring-red-300"
+              : "bg-blue-700 text-white  border-blue-700 hover:bg-blue-800 focus:ring-blue-300"
+          } rounded-lg border focus:ring-4 focus:outline-none  `}
         >
           {isEditing ? "Update" : "Add Todo"}
           <span className="sr-only">Search</span>
