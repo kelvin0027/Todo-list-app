@@ -16,13 +16,13 @@ const TodoAppList = ({
 }) => {
   const deleteBtnHandler = async (id) => {
     try {
-      const response = await api.delete("/todos/" + id);
-      console.log(response.data);
       setTodos(todos.filter((todo) => todo.id !== id));
       if (id === isEditingId){
         setinputFieldValue('')
         setIsEditing(false)
       }
+      const response = await api.delete("/todos/" + id);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
     }

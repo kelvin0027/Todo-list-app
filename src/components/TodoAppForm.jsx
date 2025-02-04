@@ -43,8 +43,8 @@ const TodoAppForm = ({
       const updatedTodo = { title: inputFieldValue };
       console.log(isEditingId);
       try {
-        await api.put(`/todos/${isEditingId}`, updatedTodo),
-          setTodos(todos.map((todo) => (todo.id === isEditingId ? { ...todo, ...updatedTodo } : todo)));
+        setTodos(todos.map((todo) => (todo.id === isEditingId ? { ...todo, ...updatedTodo } : todo)));
+        await api.put(`/todos/${isEditingId}`, updatedTodo);
       } catch (err) {
         console.log(`Error: ${err.message}`);
       }
