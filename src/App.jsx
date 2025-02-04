@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import api from "./api/todos";
 import TodoAppForm from "./components/TodoAppForm";
 import TodoAppList from "./components/TodoAppList";
